@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  logTableNo(e){
+    console.log('In app component', e);
+    
+  }
 }

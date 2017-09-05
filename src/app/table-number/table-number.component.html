@@ -1,5 +1,6 @@
 <form class="table-number-form">
   <md-form-field class="example-full-width">
-    <input mdInput placeholder="Table Number" />
+    <input mdInput name="table" #tableInput placeholder="Table Number" />
   </md-form-field>
+  <button type="button" md-button (click)="onSubmit(tableInput.value);">Submit</button>
 </form>

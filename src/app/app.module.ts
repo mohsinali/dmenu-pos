@@ -7,12 +7,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableNumberComponent } from './table-number/table-number.component';
+import { MainContentAreaComponent } from './main-content-area/main-content-area.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    TableNumberComponent
+    TableNumberComponent,
+    MainContentAreaComponent
   ],
   imports: [
     BrowserModule,

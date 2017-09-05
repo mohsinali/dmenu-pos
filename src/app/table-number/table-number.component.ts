@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'table-number',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-number.component.css']
 })
 export class TableNumberComponent implements OnInit {
-
+  @Output('tableNumber') 
+  tableNumber: EventEmitter<number> = new EventEmitter<number>();
+  
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit(value){
+    console.log('In Table Number Component', value);
+    this.tableNumber.emit(value);
+  }
 }
