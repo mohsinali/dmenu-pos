@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
+import { Category } from './../models/category';
 import { CategoryService } from './../services/categories.service';
+
 
 @Component({
   selector: 'dashboard',
@@ -11,7 +13,8 @@ import { CategoryService } from './../services/categories.service';
 })
 export class DashboardComponent implements OnInit {
   tableNumber: number = 0;
-  categories;
+  selectedCategory: Category;
+  categories: Category[];
 
   constructor(private route: ActivatedRoute, private categoryService: CategoryService) { 
     this.categories = categoryService.getCategories();
@@ -19,6 +22,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {    
     this.tableNumber = +this.route.snapshot.queryParamMap.get('t');
+  }
+
+  selectCategory(id){
+    this.selectedCategory = id;
   }
 
 }

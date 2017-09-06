@@ -15,7 +15,6 @@ export class TableNumberComponent implements OnInit {
   }
 
   onSubmit(value){
-    console.log('In Table Number Component', value);
     this.tableNumber.emit(value);
   }
 }
