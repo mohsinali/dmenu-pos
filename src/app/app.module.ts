@@ -9,13 +9,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableNumberComponent } from './table-number/table-number.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StatusBarComponent } from './status-bar/status-bar.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { MenuItemsComponent } from './menu-items/menu-items.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TableNumberComponent,
-    DashboardComponent
+    DashboardComponent,
+    StatusBarComponent,
+    CategoriesComponent,
+    MenuItemsComponent
   ],
   imports: [
     BrowserModule,
