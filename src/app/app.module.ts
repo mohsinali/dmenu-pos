@@ -2,24 +2,29 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableNumberComponent } from './table-number/table-number.component';
-import { MainContentAreaComponent } from './main-content-area/main-content-area.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TableNumberComponent,
-    MainContentAreaComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule.forRoot([
+      { path: "", component: TableNumberComponent },
+      { path: "dashboard", component: DashboardComponent }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
