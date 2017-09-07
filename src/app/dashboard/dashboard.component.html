@@ -1,4 +1,4 @@
 <status-bar [tableNumber]="tableNumber"></status-bar>
 <categories [categories]="categories" (selectedCategoryId)="selectCategory($event)" ></categories>
 <h2>Selected Category: {{selectedCategory}}</h2>
-<menu-items></menu-items>
+<menu-items [menuItems]="menuItems" ></menu-items>
