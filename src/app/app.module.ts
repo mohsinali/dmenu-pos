@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StatusBarComponent } from './status-bar/status-bar.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MenuItemsComponent } from './menu-items/menu-items.component';
     DashboardComponent,
     StatusBarComponent,
     CategoriesComponent,
-    MenuItemsComponent
+    MenuItemsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

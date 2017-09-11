@@ -5,6 +5,7 @@ import { Category } from './../models/category';
 import { CategoryService } from './../services/categories.service';
 import { MenuItem } from './../models/menu-item';
 import { MenuItemsService } from './../services/menu-items.services';
+import { CartItem } from './../models/cart-item';
 import * as _ from "lodash";
 
 
@@ -19,6 +20,10 @@ export class DashboardComponent implements OnInit {
   selectedCategory: Category;
   categories: Category[];
   menuItems: MenuItem[];
+  cartItems: CartItem[] = [
+    { name: "Brics", quantity: 2, price: 200, total: 400 },
+    { name: "Daal Chawal", quantity: 1, price: 100, total: 100 }
+  ];
 
   constructor(
         private route: ActivatedRoute, 
