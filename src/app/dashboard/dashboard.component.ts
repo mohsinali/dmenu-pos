@@ -5,6 +5,7 @@ import { Category } from './../models/category';
 import { CategoryService } from './../services/categories.service';
 import { MenuItem } from './../models/menu-item';
 import { MenuItemsService } from './../services/menu-items.services';
+import * as _ from "lodash";
 
 
 @Component({
@@ -24,10 +25,11 @@ export class DashboardComponent implements OnInit {
         private categoryService: CategoryService,
         private menuItemServie: MenuItemsService){ 
     this.categories = categoryService.getCategories();
+    // this.selectedCategory = _.first(this.categories);
   }
 
   ngOnInit() {    
-    this.tableNumber = +this.route.snapshot.queryParamMap.get('t');
+    this.tableNumber = +this.route.snapshot.queryParamMap.get('t');    
   }
 
   selectCategory(id){
