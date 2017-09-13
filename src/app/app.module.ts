@@ -13,6 +13,7 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { CartComponent } from './cart/cart.component';
+import MainRoutes from './main.routes';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,7 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    RouterModule.forRoot([
-      { path: "", component: TableNumberComponent },
-      { path: "dashboard", component: DashboardComponent }
-    ])
+    MainRoutes
   ],
   providers: [],
   bootstrap: [AppComponent]
