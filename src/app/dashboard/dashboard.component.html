@@ -1,4 +1,11 @@
-<status-bar [tableNumber]="tableNumber"></status-bar>
-<categories [categories]="categories" (selectedCategoryId)="selectCategory($event)" ></categories>
-<h2>Selected Category: {{selectedCategory}}</h2>
-<menu-items [menuItems]="menuItems" ></menu-items>
+<div class="left-pane">
+  <header></header>
+  <status-bar [tableNumber]="tableNumber"></status-bar>
+  <categories [categories]="categories" (selectedCategoryId)="selectCategory($event)" ></categories>
+  <h2>Selected Category: {{selectedCategory}}</h2>
+  <menu-items [menuItems]="menuItems" ></menu-items>
+</div>
+
+<div class="right-pane">
+  <cart [cartItems]="cartItems"></cart>
+</div>

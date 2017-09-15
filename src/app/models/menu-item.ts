@@ -1,4 +1,5 @@
-export class MenuItem {
+export interface MenuItem {
   id: number;
   name: string;
+  price: number;
 }

@@ -21,8 +21,8 @@ export class DashboardComponent implements OnInit {
   categories: Category[];
   menuItems: MenuItem[];
   cartItems: CartItem[] = [
-    { name: "Brics", quantity: 2, price: 200, total: 400 },
-    { name: "Daal Chawal", quantity: 1, price: 100, total: 100 }
+    { id: 1, name: "Brics", quantity: 2, price: 200 },
+    { id: 2, name: "Daal Chawal", quantity: 1, price: 100 }
   ];
 
   constructor(
