@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { CategoryService } from './../services/categories.service';
 import { Category } from './../models/category';
@@ -12,8 +12,11 @@ import * as _ from "lodash";
   styleUrls: ['./menu-items.component.css']
 })
 export class MenuItemsComponent implements OnInit {
-  @Input() cartItems: CartItem[] = [];
   @Input() menuItems: MenuItem[];
+  @Output() updateCart = new EventEmitter();
+  
+  private cartItems: CartItem[] = [];
+  // @Output() cartItems: EventEmitter<CartItem[]> = new EventEmitter<any>();
 
   constructor() {
   }
@@ -22,8 +25,6 @@ export class MenuItemsComponent implements OnInit {
   }
 
   addToCart(item: MenuItem){
-    console.log(item);
-  
     let cItem: CartItem;
     if(this.cartItems.length > 0){
       let index = _.findIndex(this.cartItems, (i) => {
@@ -45,6 +46,8 @@ export class MenuItemsComponent implements OnInit {
       cItem = {id: item.id, name: item.name, quantity: 1, price: item.price};
       this.cartItems.push(cItem);
     }
+
+    this.updateCart.emit(this.cartItems);
   }
 
 }

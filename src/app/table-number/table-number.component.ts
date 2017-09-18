@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./table-number.component.css']
 })
 export class TableNumberComponent implements OnInit {
-  @Output('tableNumber') 
+  @Output('tableNumber')
   tableNumber: EventEmitter<number> = new EventEmitter<number>();
   
   constructor(private router: Router) { }

@@ -1,4 +1,8 @@
-Hello
 <ul>
-  <li *ngFor="let item of cartItems">{{item.name}}</li>
+  <li *ngFor="let item of cartItems">
+    Name: {{item.name}}<br />
+    Quantity: {{item.quantity}}<br />
+    Price: {{item.price}}<br />
+    Total: {{item.price * item.quantity}}
+  </li>
 </ul>

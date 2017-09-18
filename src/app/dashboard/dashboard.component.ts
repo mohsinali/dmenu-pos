@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 import { Category } from './../models/category';
@@ -20,10 +20,7 @@ export class DashboardComponent implements OnInit {
   selectedCategory: Category;
   categories: Category[];
   menuItems: MenuItem[];
-  cartItems: CartItem[] = [
-    { id: 1, name: "Brics", quantity: 2, price: 200 },
-    { id: 2, name: "Daal Chawal", quantity: 1, price: 100 }
-  ];
+  @Input() cartItems: CartItem[] = [];
 
   constructor(
         private route: ActivatedRoute, 
@@ -40,6 +37,10 @@ export class DashboardComponent implements OnInit {
   selectCategory(id){
     this.selectedCategory = id;
     this.menuItems = this.menuItemServie.getMenusByCategory(id);
+  }
+
+  onCartUpdated(i: CartItem[]){
+    this.cartItems = i;
   }
 
 }
