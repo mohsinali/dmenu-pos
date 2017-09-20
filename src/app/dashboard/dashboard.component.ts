@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
     this.tableNumber = +this.route.snapshot.queryParamMap.get('t');    
   }
 
-  selectCategory(id){
+  selectCategory(id){ 
     this.selectedCategory = id;
     this.menuItems = this.menuItemServie.getMenusByCategory(id);
   }
