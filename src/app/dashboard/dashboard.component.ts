@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
     // this.selectedCategory = _.first(this.categories);
   }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.tableNumber = +this.route.snapshot.queryParamMap.get('t');    
   }
 

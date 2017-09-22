@@ -1,11 +1,16 @@
 <ul>
   <li *ngFor="let item of cartItems">
     Name: {{item.name}}<br />
-    Quantity: {{item.quantity}}<br />
+    Quantity: 
+      <md-icon class="pointer" (click)="increaseQty(item)">add_circle_outline</md-icon>
+      {{item.quantity}}
+      <md-icon class="pointer" (click)="decreaseQty(item)">remove_circle_outline</md-icon>
+      <br />
     Price: {{item.price}}<br />
     Total: {{item.price * item.quantity}}
+    <md-icon class="pointer" (click)="removeItem(item)">delete</md-icon>
     <hr />
   </li>
 </ul>
 
-Gross: {{gross}}
+Gross: 

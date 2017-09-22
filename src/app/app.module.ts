@@ -13,7 +13,7 @@ import { StatusBarComponent } from './status-bar/status-bar.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { CartComponent } from './cart/cart.component';
-import MainRoutes from './main.routes';
+import { publicRoutes } from './main.routes';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,7 @@ import MainRoutes from './main.routes';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MainRoutes
+    publicRoutes
   ],
   providers: [],
   bootstrap: [AppComponent]
