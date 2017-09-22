@@ -11,6 +11,8 @@ export class CartComponent implements OnInit {
   @Input()
   cartItems: CartItem[];
 
+  cart_total = _.sumBy(this.cartItems, function(o){ return (o.quantity * o.price) }) ;
+
   
   constructor() { }
   
