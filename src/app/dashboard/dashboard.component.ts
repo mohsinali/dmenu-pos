@@ -20,6 +20,12 @@ export class DashboardComponent implements OnInit {
   selectedCategory: Category;
   categories: Category[];
   menuItems: MenuItem[];
+  totals = {
+    grossTotal: 0,
+    netTotal: 0,
+    totalItems: 0
+  };
+
   @Input() cartItems: CartItem[] = [];
 
   constructor(
@@ -27,6 +33,7 @@ export class DashboardComponent implements OnInit {
         private categoryService: CategoryService,
         private menuItemServie: MenuItemsService){ 
     this.categories = categoryService.getCategories();
+    
     // this.selectedCategory = _.first(this.categories);
   }
 
@@ -39,8 +46,55 @@ export class DashboardComponent implements OnInit {
     this.menuItems = this.menuItemServie.getMenusByCategory(id);
   }
 
-  onCartUpdated(i: CartItem[]){
-    this.cartItems = i;
+  onSelectItem(item){
+    let cItem: CartItem;
+    if(this.cartItems.length > 0){
+      let index = _.findIndex(this.cartItems, (i) => {
+        return item.id === i.id;
+      });
+
+      if(index === -1){ // Not found
+        cItem = {id: item.id, name: item.name, quantity: 1, price: item.price};
+        this.cartItems.push(cItem);
+
+      }else{ // Item found, increase quantity
+        cItem = this.cartItems[index];
+        cItem.quantity = cItem.quantity + 1;
+        this.cartItems[index] = cItem;
+      }
+      
+      console.log(this.cartItems);
+    }else{
+      cItem = {id: item.id, name: item.name, quantity: 1, price: item.price};
+      this.cartItems.push(cItem);
+    }
+    this.updateTotals();
+  }
+
+  onRemoveItem(item){
+    let index = _.indexOf(this.cartItems, item);
+    this.cartItems.splice(index, 1);
+    this.updateTotals();
+  }
+
+  onIncreaseQty(item){
+    let index = _.indexOf(this.cartItems, item);
+    this.cartItems[index].quantity += 1;
+
+    this.updateTotals();
+  }
+
+  onDecreaseQty(item){
+    let index = _.indexOf(this.cartItems, item);
+    if(this.cartItems[index].quantity > 1)
+      this.cartItems[index].quantity -= 1;
+
+    this.updateTotals();
+  }
+
+  updateTotals(){
+    this.totals.grossTotal = _.sumBy(this.cartItems, function(o){ return (o.quantity * o.price) });
+    this.totals.totalItems = this.cartItems.length;
   }
 
 }

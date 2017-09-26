@@ -8,9 +8,9 @@
       <br />
     Price: {{item.price}}<br />
     Total: {{item.price * item.quantity}}
-    <md-icon class="pointer" (click)="removeItem(item)">delete</md-icon>
+    <md-icon class="pointer" (click)="deleteItem(item)">delete</md-icon>
     <hr />
   </li>
 </ul>
 
-Gross: {{ cart_total }}
+Gross: {{ totals.grossTotal }}

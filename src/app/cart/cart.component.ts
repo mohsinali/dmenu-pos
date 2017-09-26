@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CartItem } from './../models/cart-item';
 import * as _ from "lodash";
 
@@ -8,31 +8,30 @@ import * as _ from "lodash";
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-  @Input()
-  cartItems: CartItem[];
-
-  cart_total = _.sumBy(this.cartItems, function(o){ return (o.quantity * o.price) }) ;
+  @Input() cartItems: CartItem[];
+  @Output() qtyIncrease = new EventEmitter();
+  @Output() qtyDecrease = new EventEmitter();
+  @Output() removeItem = new EventEmitter();
+  @Input() cart_total: number = 0;
+  @Input() totals;
 
   
-  constructor() { }
+  constructor() {
+  }
   
   ngOnInit() {
   }
 
-  removeItem(item){
-    let index = _.indexOf(this.cartItems, item);
-    this.cartItems.splice(index, 1);
+  deleteItem(item){    
+    this.removeItem.emit(item);
   }
 
   increaseQty(item){
-    let index = _.indexOf(this.cartItems, item);
-    this.cartItems[index].quantity += 1;
+    this.qtyIncrease.emit(item);    
   }
 
   decreaseQty(item){
-    let index = _.indexOf(this.cartItems, item);
-    if(this.cartItems[index].quantity > 1)
-      this.cartItems[index].quantity -= 1;
+    this.qtyDecrease.emit(item);
   }
 
 }

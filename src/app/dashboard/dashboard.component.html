@@ -3,9 +3,16 @@
   <status-bar [tableNumber]="tableNumber"></status-bar>
   <categories [categories]="categories" (selectedCategoryId)="selectCategory($event)" ></categories>
   <h2>Selected Category: {{selectedCategory}}</h2>
-  <menu-items [menuItems]="menuItems" (updateCart)="onCartUpdated($event)"></menu-items>
+  <menu-items [menuItems]="menuItems" (selectedItem)="onSelectItem($event)" ></menu-items>
 </div>
 
 <div class="right-pane">
-  <cart [cartItems]="cartItems"></cart>
+  <cart 
+    [cartItems]="cartItems" 
+    [totals]="totals" 
+    (removeItem)="onRemoveItem($event)"
+    (qtyIncrease)="onIncreaseQty($event)"
+    (qtyDecrease)="onDecreaseQty($event)"
+    >
+  </cart>
 </div>
