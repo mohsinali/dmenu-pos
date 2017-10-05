@@ -29,13 +29,8 @@ export class DashboardComponent implements OnInit {
   @Input() cartItems: CartItem[] = [];
 
   constructor(
-        private route: ActivatedRoute, 
-        private categoryService: CategoryService,
-        private menuItemServie: MenuItemsService){ 
-    this.categories = categoryService.getCategories();
-    
-    // this.selectedCategory = _.first(this.categories);
-  }
+        private route: ActivatedRoute,         
+        private menuItemServie: MenuItemsService){}
 
   ngOnInit() {
     this.tableNumber = +this.route.snapshot.queryParamMap.get('t');    

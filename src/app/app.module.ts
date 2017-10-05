@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '@angular/material';
@@ -30,7 +31,8 @@ import { publicRoutes } from './main.routes';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    publicRoutes
+    publicRoutes,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

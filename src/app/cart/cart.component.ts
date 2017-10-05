@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartItem } from './../models/cart-item';
 import * as _ from "lodash";
 
@@ -16,10 +17,13 @@ export class CartComponent implements OnInit {
   @Input() totals;
 
   
-  constructor() {
-  }
+  constructor(private router: Router) { }
   
   ngOnInit() {
+  }
+
+  onCancel(){
+    this.router.navigate(['/']);
   }
 
   deleteItem(item){    
