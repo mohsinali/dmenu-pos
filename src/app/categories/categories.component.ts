@@ -11,7 +11,6 @@ import { Category } from './../models/category';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
-  // @Input()
   categories: any[];
 
   @Output('selectedCategoryId')
@@ -23,7 +22,7 @@ export class CategoriesComponent implements OnInit {
     this.categoryService.getCategories().subscribe(
       (response) => {
         this.categories = response.json();
-        console.log(this.categories);        
+        console.log(this.categories);
       },
       (err) => {}
     )
